@@ -1,8 +1,8 @@
 from typing import Optional, List
 from sqlalchemy.orm import Session
-from models.category import Category
-from schemas.category import CategoryCreate, CategoryResponse
-from repositories.category_repository import CategoryRepository
+from ..models.category import Category
+from ..schemas.category import CategoryCreate, CategoryResponse
+from ..repositories.category_repository import CategoryRepository
 from fastapi import HTTPException, status
 
 class CategoryService:

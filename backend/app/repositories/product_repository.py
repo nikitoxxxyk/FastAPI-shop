@@ -1,7 +1,7 @@
 from typing import Optional, List
 from sqlalchemy.orm import Session, joinedload
-from models.product import Product
-from schemas.product import ProductCreate
+from ..models.product import Product
+from ..schemas.product import ProductCreate
 
 class ProductRepository:
 	def __init__(self, db: Session):
