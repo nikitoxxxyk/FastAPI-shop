@@ -6,7 +6,6 @@ from .category import CategoryResponse
 class ProductBase(BaseModel):
 	name: str = Field(..., min_length=5, max_length=100, description="Product name")
 	description: Optional[str] = Field(None, description="Product description")
-	slug: str = Field(..., min_length=5, max_length=100, description="URL - friendly category name")
 	price: float = Field(..., gt=0, description="Product price(must be greater than 0)")
 	category_id: int = Field(..., description="Category ID")
 	image_url: Optional[str] = Field(None, description="Product image URL")
@@ -25,7 +24,7 @@ class ProductResponse(BaseModel):
 	category: CategoryResponse = Field(..., description="Product category details")
 
 	class Config:
-		form_attributes = True
+		from_attributes = True
 
 class ProductListResponse(BaseModel):
 	products: list[ProductResponse]

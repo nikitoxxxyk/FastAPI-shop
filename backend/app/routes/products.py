@@ -12,15 +12,18 @@ router = APIRouter(
 
 @router.get("", response_model=ProductListResponse, status_code=status.HTTP_200_OK)
 def get_products(db: Session = Depends(get_db)):
+	""" Returns all products """
 	service = ProductService(db)
 	return service.get_all_products()
 
 @router.get("/{product_id}", response_model=ProductResponse, status_code=status.HTTP_200_OK)
 def get_product(product_id: int, db: Session = Depends(get_db)):
+	"""Returns all product by id"""
 	service = ProductService(db)
 	return service.get_products_by_id(product_id)
 
 @router.get("/category/{category_id}", response_model=ProductListResponse, status_code=status.HTTP_200_OK)
 def get_products_by_category(category_id: int, db: Session = Depends(get_db)):
+	"""Returns all product by id"""
 	service = ProductService(db)
 	return service.get_products_by_category(category_id)

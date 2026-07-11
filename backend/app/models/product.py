@@ -5,11 +5,8 @@ from ..database import Base
 
 class Product(Base):
 	__tablename__ = 'products'
-
-
 	id = Column(Integer, index=True, primary_key=True)
 	name = Column(String, nullable=False, index=True)
-	slug = Column(String, unique=True, nullable=False, index=True)
 	description = Column(Text)
 	price = Column(Float, nullable=False)
 	category_id = Column(Integer, ForeignKey("categories.id"), nullable=False)

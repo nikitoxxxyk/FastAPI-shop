@@ -25,7 +25,7 @@ class ProductService:
 		return ProductResponse.model_validate(product)
 
 	def get_products_by_category(self, category_id: int) -> ProductListResponse:
-		category = self.category_repository.get_by_category(category_id)
+		category = self.category_repository.get_by_id(category_id)
 		if not category:
 			raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Category with id {category_id} not found")
 		
